@@ -15,42 +15,23 @@ function calculateShoppingInvoice(itemsList) {
   for (let i = 0; i < itemsList.length; i++) {
     totalCost += itemsList[i].price;
   }
-  console.log(`The Total Cost : $ ${totalCost.toFixed(2)}`);
-
-  // 10% Discount
-  const discountRate = 0.1;
-  let discountAmount = totalCost * discountRate;
-  let costAfterDiscount = totalCost - discountAmount;
-  console.log(`The discount applied : $ ${discountAmount.toFixed(2)}`);
-
-  // 7% Tax
-  const taxRate = 0.07;
-  let taxAmount = costAfterDiscount * taxRate;
-  let finalCost = costAfterDiscount + taxAmount;
-  console.log(`Tax amount : $ ${taxAmount.toFixed(2)}`);
-
-  // Final Cost
-  console.log(`The final amount : $ ${finalCost.toFixed(2)}`);
-
-  return finalCost;
+  return totalCost;
 }
-calculateShoppingInvoice(shoppingItems);
+let getTotalCost = calculateShoppingInvoice(shoppingItems);
+console.log(`The Total Cost : $ ${getTotalCost}`);
 
-// // Total Cost
-// let totalPrice = 0;
-// for (let i = 0; i < product.length; i++) {
-//   total_Price += product[i].price;
-// }
-// console.log(`The Total Cost : $ ${total_Price}`);
-// // Discount
-// let discount = 0.1;
-// let cost = total_Price * discount;
-// total_Price = total_Price - cost;
-// console.log(`The discount applied : $ ${cost}`);
-// // tax
-// let tax = 0.07;
-// let taxpayment = total_Price * tax;
-// total_Price = total_Price + taxpayment;
-// console.log(`Tax amount : $ ${taxpayment}`);
-// // final amount
-// console.log(`The final amount : $ ${total_Price}`);
+// 10% Discount
+function discount(amount, percent) {
+  return amount * (percent / 100);
+}
+let discountAmount = discount(totalCost, 10);
+console.log(`The discount Amount :$ ${discountAmount}`);
+
+totalCost -= discountAmount;
+console.log(`The total cost after discount : $${totalCost}`);
+
+// 7% Tax
+let taxAmount = discount(totalCost, 7);
+console.log(`Tax  amount : $${taxAmount}`);
+totalCost += taxAmount;
+console.log(`The final amount :${totalCost}`);
