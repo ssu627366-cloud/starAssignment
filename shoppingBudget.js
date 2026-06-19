@@ -24,14 +24,14 @@ console.log(`The Total Cost : $ ${getTotalCost}`);
 function discount(amount, percent) {
   return amount * (percent / 100);
 }
-let discountAmount = discount(totalCost, 10);
+let discountAmount = discount(getTotalCost, 10);
 console.log(`The discount Amount :$ ${discountAmount}`);
 
-totalCost -= discountAmount;
-console.log(`The total cost after discount : $${totalCost}`);
+getTotalCost -= discountAmount;
+console.log(`The total cost after discount : $${getTotalCost}`);
 
 // 7% Tax
-let taxAmount = discount(totalCost, 7);
+let taxAmount = discount(getTotalCost, 7);
 console.log(`Tax  amount : $${taxAmount}`);
-totalCost += taxAmount;
-console.log(`The final amount :${totalCost}`);
+getTotalCost += taxAmount;
+console.log(`The final amount :${getTotalCost}`);
